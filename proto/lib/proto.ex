@@ -1,6 +1,6 @@
-defmodule TestGen do
+defmodule Proto do
   @moduledoc """
-  Documentation for `TestGen`.
+  Documentation for `Proto`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule TestGen do
 
   ## Examples
 
-      iex> TestGen.hello()
+      iex> Proto.hello()
       :world
 
   """
