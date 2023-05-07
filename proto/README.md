@@ -1,21 +1,14 @@
 # Proto
 
-**TODO: Add description**
+## Overview 
 
-## Installation
+Prototype mix tasks for testing and experimentation. 
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `proto` to your list of dependencies in `mix.exs`:
+## Injector Path
 
-```elixir
-def deps do
-  [
-    {:proto, "~> 0.1.0"}
-  ]
-end
-```
+Some of the tasks in this library use the `Injector` library.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/proto>.
+For local development, set the environment variable `INJECTOR_PATH`.
 
+If the environment variable is not set, the `Injector` library is loaded from
+github.

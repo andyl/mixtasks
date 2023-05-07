@@ -13,3 +13,9 @@ To use, add the project as a dependency:
 See the (mix
 documentation)[https://hexdocs.pm/mix/1.14/Mix.Tasks.Deps.html#module-git-options-git]
 for more info.
+
+Next Steps: 
+- [ ] Copy injectors from phoenix project 
+- [ ] Test injector environment variable 
+- [ ] Build first operations using injectors 
+
