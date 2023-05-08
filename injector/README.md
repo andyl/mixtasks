@@ -1,4 +1,4 @@
-# Injector
+# Injectors
 
 A collection of 'injector' modules, which modify elixir code to automatically
 update project source.

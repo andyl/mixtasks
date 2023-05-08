@@ -15,9 +15,9 @@ documentation)[https://hexdocs.pm/mix/1.14/Mix.Tasks.Deps.html#module-git-option
 for more info.
 
 Next Steps: 
-- [ ] Rename ash_gen to ashx 
-- [ ] Rename injector to injectors
-- [ ] Copy injectors from phoenix project 
-- [ ] Test injector environment variable 
+- [x] Rename ash_gen to ashx 
+- [x] Rename injector to injectors
+- [x] Copy injectors from phoenix project 
+- [ ] Test injector_path environment variable 
 - [ ] Build first operations using injectors 
 
