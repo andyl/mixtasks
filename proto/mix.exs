@@ -19,13 +19,13 @@ defmodule Proto.MixProject do
 
   defp deps do
     [
-      injector_dep()
+      gen_util_dep()
     ]
   end
 
-  defp injector_dep do
-    case System.get_env("INJECTOR_PATH") do
-      nil -> {:injector, github: "andyl/mixtasks", subdir: "injector"}
+  defp gen_util_dep do
+    case System.get_env("GEN_UTIL_DEP") do
+      nil -> {:injector, github: "andyl/mixtasks", subdir: "gen_util"}
       path -> {:injector, path: path}
     end
   end
