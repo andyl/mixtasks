@@ -38,15 +38,15 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
     IO.puts("This is ashx.gen.base")
     parse_args(argv)
     |> add_ash_package()
-    # |> gen_dirs()
-    # |> gen_ticket()
-    # |> gen_representative()
-    # |> gen_registry()
-    # |> gen_support_api()
-    # |> gen_demo_scripts()
-    # |> output_config_instructions()
-    # |> output_formatter_instructions()
-    # |> output_command_instructions()
+    |> gen_dirs()
+    |> gen_ticket()
+    |> gen_representative()
+    |> gen_registry()
+    |> gen_support_api()
+    |> gen_demo_scripts()
+    |> output_config_instructions()
+    |> output_formatter_instructions()
+    |> output_command_instructions()
   end
 
   def parse_args(argv) do
@@ -69,6 +69,7 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
     spec = GenUtil.Package.latest("ash")
     {:ok, otxt} = GenUtil.Injector.mix_dependency_inject(itxt, spec)
     File.write!(file, otxt)
+    GenUtil.Msg.injected("#{spec} into mix.exs")
     domain
   end
 
@@ -118,7 +119,8 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
         config :ash, :use_all_identities_in_manage_relationship?, false
     """
 
-    IO.puts("-----\n" <> msg)
+    IO.puts(" ")
+    GenUtil.Msg.instructions("config", msg)
     domain
   end
 
@@ -136,7 +138,7 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
         ]
     """
 
-    IO.puts("-----\n" <> msg)
+    GenUtil.Msg.instructions("formatter", msg)
     domain
   end
 
@@ -146,10 +148,9 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
 
         $> mix deps.get
         $> mix deps.compile
-
     """
 
-    IO.puts("-----\n" <> msg)
+    GenUtil.Msg.instructions("commands", msg)
     domain
   end
 
