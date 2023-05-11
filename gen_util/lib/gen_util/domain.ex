@@ -12,8 +12,10 @@ defmodule GenUtil.Domain do
   def module(%{appname: app, namespace: nil}, mod), do: "#{camelize(app)}.#{camelize(mod)}"
   def module(domain, mod), do: "#{module(domain)}.#{camelize(mod)}"
 
+  def appmod(arg), do: module(arg)
+
   defp camelize(item) do
-    Inflex.camelize(item, :upper_camel_case)
+    Inflex.camelize(item)
   end
 
 end

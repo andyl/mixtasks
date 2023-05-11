@@ -82,25 +82,29 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
 
   def gen_ticket(domain) do
     tgt_path = base_dir(domain) <> "/support/resources/ticket.ex"
-    template("ticket.ex") |> copy_template(tgt_path, [])
+    args = [ appmod: GenUtil.Domain.appmod(domain) ]
+    template("ticket.ex") |> copy_template(tgt_path, args)
     domain
   end
 
   def gen_representative(domain) do
     tgt_path = base_dir(domain) <> "/support/resources/representative.ex"
-    template("representative.ex") |> copy_template(tgt_path, [])
+    args = [ appmod: GenUtil.Domain.appmod(domain) ]
+    template("representative.ex") |> copy_template(tgt_path, args)
     domain
   end
 
   def gen_registry(domain) do
     tgt_path = base_dir(domain) <> "/support/afm_registry.ex"
-    template("afm_registry.ex") |> copy_template(tgt_path, [])
+    args = [ appmod: GenUtil.Domain.appmod(domain) ]
+    template("afm_registry.ex") |> copy_template(tgt_path, args)
     domain
   end
 
   def gen_support_api(domain) do
     tgt_path = base_dir(domain) <> "/support.ex"
-    template("support.ex") |> copy_template(tgt_path, [])
+    args = [ appmod: GenUtil.Domain.appmod(domain) ]
+    template("support.ex") |> copy_template(tgt_path, args)
     domain
   end
 
