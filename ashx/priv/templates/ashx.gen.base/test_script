@@ -1,0 +1,46 @@
+#!/usr/bin/env elixir
+
+Mix.install([
+  {:<%= @domain.appname %>, path: File.cwd!}
+])
+
+IO.puts("----- TEST1: CREATE A TICKET") 
+
+<%= @appmod %>.Support.Ticket 
+|> Ash.Changeset.for_create(:open, %{subject: "My mouse won't click!"})
+|> <%= @appmod %>.Support.create!()
+|> IO.inspect()
+
+IO.puts("----- TEST2: OPEN AND CLOSE A TICKET")
+
+# parenthesis so you can paste into iex
+ticket = (
+  <%= @appmod %>.Support.Ticket
+  |> Ash.Changeset.for_create(:open, %{subject: "My mouse won't click!"})
+  |> <%= @appmod %>.Support.create!()
+)
+
+ticket
+|> Ash.Changeset.for_update(:close)
+|> <%= @appmod %>.Support.update!() 
+|> IO.inspect() 
+
+IO.puts("----- TEST3: Query")
+
+for i <- 0..5 do
+  ticket =
+    <%= @appmod %>.Support.Ticket
+    |> Ash.Changeset.for_create(:open, %{subject: "Issue #{i}"})
+    |> <%= @appmod %>.Support.create!()
+
+  if rem(i, 2) == 0 do
+    ticket
+    |> Ash.Changeset.for_update(:close)
+    |> <%= @appmod %>.Support.update!()
+  end
+end
+
+<%= @appmod %>.Support.Ticket
+|> <%= @appmod %>.Support.read!()
+|> IO.inspect() 
+

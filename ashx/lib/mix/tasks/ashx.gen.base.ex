@@ -1,4 +1,5 @@
 defmodule Mix.Tasks.Ashx.Gen.Base do
+
   use Mix.Task
 
   @shortdoc "Generate Ash Base assets"
@@ -75,8 +76,10 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
 
   def gen_dirs(domain) do
     base_dir = "lib/" <> GenUtil.Domain.path(domain)
-    create_directory(base_dir <> "/support")
-    create_directory(base_dir <> "/support/resources")
+    create_directory(base_dir <> "support")
+    create_directory(base_dir <> "support/resources")
+    create_directory(base_dir <> "support/resources")
+    create_directory("bin")
     domain
   end
 
@@ -109,6 +112,10 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
   end
 
   def gen_demo_scripts(domain) do
+    tgt_path = "bin/test_script"
+    args = [ appmod: GenUtil.Domain.appmod(domain), domain: domain ]
+    template("test_script") |> copy_template(tgt_path, args)
+    System.cmd("chmod", ~w(a+rx bin/test_script))
     domain
   end
 
@@ -152,6 +159,7 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
 
         $> mix deps.get
         $> mix deps.compile
+        $> bin/test_script
     """
 
     GenUtil.Msg.instructions("commands", msg)
