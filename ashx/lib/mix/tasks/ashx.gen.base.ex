@@ -19,16 +19,16 @@ defmodule Mix.Tasks.Ashx.Gen.Base do
   [1]: https://ash-hq.org/docs/guides/ash/latest/tutorials/get-started
 
   Generator actions:
-  - [ ] adds latest version of ash to the deps section of `mix.exs`
-  - [ ] generates ash directories
-  - [ ] generates ticket resource `ticket.ex`
-  - [ ] generates representative resource `representative.ex`
-  - [ ] generates resource registry `registry.ex`
-  - [ ] generates API `support.ex`
-  - [ ] generates demo scripts
-  - [ ] outputs instructions on how to update `config/config.exs`
-  - [ ] outputs instructions on how to update `.formatter.exs`
-  - [ ] outputs instructions on commands to run
+  - adds latest version of ash to the deps section of `mix.exs`
+  - generates ash directories
+  - generates ticket resource `ticket.ex`
+  - generates representative resource `representative.ex`
+  - generates resource registry `registry.ex`
+  - generates API `support.ex`
+  - generates demo scripts
+  - outputs instructions on how to update `config/config.exs`
+  - outputs instructions on how to update `.formatter.exs`
+  - outputs instructions on commands to run
 
   This setup uses ETS for persistence - data is wiped out when the server stops.
   """
