@@ -7,6 +7,6 @@ tasks, focused on a specific purpose.
 
 To use, add the sub-project as a dependency:
 
-    {:ashx, github: "andyl/mixtasks", subdir: "ash_gen"}, 
+    {:ashx, github: "andyl/mixtasks", subdir: "ashx"}, 
     {:gen_util, github: "andyl/mixtasks", subdir: "gen_util"}, 
 
